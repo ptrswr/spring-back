@@ -39,20 +39,6 @@
             <b-button data-cy="submit" type="submit" variant="primary">Sign in</b-button>
           </div>
         </b-form>
-        <p></p>
-        <div>
-          <b-alert show variant="warning">
-            <b-link :to="'/account/reset/request'" class="alert-link" data-cy="forgetYourPasswordSelector"
-              >Did you forget your password?</b-link
-            >
-          </b-alert>
-        </div>
-        <div>
-          <b-alert show variant="warning">
-            <span>You don't have an account yet?</span>
-            <b-link :to="'/register'" class="alert-link">Register a new account</b-link>
-          </b-alert>
-        </div>
       </div>
     </div>
   </div>

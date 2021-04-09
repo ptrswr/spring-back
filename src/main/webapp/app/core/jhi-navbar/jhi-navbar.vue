@@ -1,8 +1,7 @@
 <template>
   <b-navbar data-cy="navbar" toggleable="md" type="dark" class="jh-navbar">
     <b-navbar-brand class="logo" b-link to="/">
-      <span class="logo-img"></span>
-      <span class="navbar-title">springLabWeb</span> <span class="navbar-version">{{ version }}</span>
+      <span class="navbar-title">Library</span>
     </b-navbar-brand>
     <b-navbar-toggle
       right
@@ -37,24 +36,16 @@
             <font-awesome-icon icon="asterisk" />
             <span>Book</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/author">
-            <font-awesome-icon icon="asterisk" />
-            <span>Author</span>
-          </b-dropdown-item>
           <b-dropdown-item to="/loan">
             <font-awesome-icon icon="asterisk" />
             <span>Loan</span>
           </b-dropdown-item>
-          <b-dropdown-item to="/author">
-            <font-awesome-icon icon="asterisk" />
-            <span>Author</span>
-          </b-dropdown-item>
-          <b-dropdown-item to="/book">
-            <font-awesome-icon icon="asterisk" />
-            <span>Book</span>
-          </b-dropdown-item>
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
         </b-nav-item-dropdown>
+        <b-nav-item data-cy="logout" v-if="authenticated" v-on:click="logout()" id="logout" active-class="active">
+          <font-awesome-icon icon="sign-out-alt" />
+          <span>Sign out</span>
+        </b-nav-item>
         <b-nav-item-dropdown
           right
           id="admin-menu"
@@ -97,10 +88,15 @@
             <span>Database</span>
           </b-dropdown-item>
         </b-nav-item-dropdown>
+        <b-nav-item data-cy="login" v-if="!authenticated" v-on:click="openLogin()" id="login" active-class="active">
+          <font-awesome-icon icon="sign-in-alt" />
+          <span>Sign in</span>
+        </b-nav-item>
         <b-nav-item-dropdown
           right
           href="javascript:void(0);"
           id="account-menu"
+          v-if="hasAnyAuthority('ROLE_ADMIN') && authenticated"
           :class="{ 'router-link-active': subIsActive('/account') }"
           active-class="active"
           class="pointer"
@@ -156,7 +152,7 @@
 }
 
 .jh-navbar {
-  background-color: #353d47;
+  background-color: #373a3d;
   padding: 0.2em 1em;
 }
 
