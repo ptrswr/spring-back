@@ -44,7 +44,7 @@
                 v-for="bookOption in books"
                 :key="bookOption.id"
               >
-                {{ bookOption.id }}
+                {{ bookOption.title }}
               </option>
             </select>
           </div>

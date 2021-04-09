@@ -40,7 +40,9 @@
             <td>{{ book.pages }}</td>
             <td>
               <div v-if="book.author">
-                <router-link :to="{ name: 'AuthorView', params: { authorId: book.author.id } }">{{ book.author.id }}</router-link>
+                <router-link :to="{ name: 'AuthorView', params: { authorId: book.author.id } }">{{
+                  book.author.name + ' ' + book.author.surname
+                }}</router-link>
               </div>
             </td>
             <td class="text-right">

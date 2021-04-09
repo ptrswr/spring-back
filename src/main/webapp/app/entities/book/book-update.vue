@@ -53,7 +53,7 @@
                 v-for="authorOption in authors"
                 :key="authorOption.id"
               >
-                {{ authorOption.id }}
+                {{ authorOption.name + ' ' + authorOption.surname }}
               </option>
             </select>
           </div>
