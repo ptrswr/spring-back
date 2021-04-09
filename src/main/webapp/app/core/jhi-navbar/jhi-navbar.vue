@@ -26,19 +26,19 @@
         <b-nav-item-dropdown right id="entity-menu" v-if="authenticated" active-class="active" class="pointer" data-cy="entity">
           <span slot="button-content" class="navbar-dropdown-menu">
             <font-awesome-icon icon="th-list" />
-            <span class="no-bold">Entities</span>
+            <span class="no-bold">Resources</span>
           </span>
           <b-dropdown-item to="/author">
             <font-awesome-icon icon="asterisk" />
-            <span>Author</span>
+            <span>Authors</span>
           </b-dropdown-item>
           <b-dropdown-item to="/book">
             <font-awesome-icon icon="asterisk" />
-            <span>Book</span>
+            <span>Books</span>
           </b-dropdown-item>
           <b-dropdown-item to="/loan">
             <font-awesome-icon icon="asterisk" />
-            <span>Loan</span>
+            <span>Loans</span>
           </b-dropdown-item>
           <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
         </b-nav-item-dropdown>
