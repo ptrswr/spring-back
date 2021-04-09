@@ -15,7 +15,41 @@
           <span>to get a full Library experience:<br /></span>
         </div>
         <div v-if="authenticated">
-          <h1 class="display-4">Available actions</h1>
+          <h1 class="display-4">Available resources</h1>
+          <div class="container mt-5">
+            <div class="row">
+              <div class="col">
+                <router-link to="/author">
+                  <button type="button" class="btn btn-primary btn-lg" to="">
+                    <div class="mr-1">
+                      <font-awesome-icon icon="user"></font-awesome-icon>
+                    </div>
+                    Authors
+                  </button>
+                </router-link>
+              </div>
+              <div class="col">
+                <router-link to="/book">
+                  <button type="button" class="btn btn-primary btn-lg">
+                    <div class="mr-1">
+                      <font-awesome-icon icon="book"></font-awesome-icon>
+                    </div>
+                    Books
+                  </button>
+                </router-link>
+              </div>
+              <div class="col">
+                <router-link to="/loan">
+                  <button type="button" class="btn btn-primary btn-lg">
+                    <div class="mr-1">
+                      <font-awesome-icon icon="book"></font-awesome-icon>
+                    </div>
+                    Loans
+                  </button>
+                </router-link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -23,3 +57,5 @@
 </template>
 
 <script lang="ts" src="./home.component.ts"></script>
+
+<style scoped></style>

@@ -47,21 +47,17 @@ public class BookResource {
     /**
      * {@code POST  /books} : Create a new book.
      *
-     * @param bookDTO the book to create.
+     * @param book the book to create.
      * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new book, or with status {@code 400 (Bad Request)} if the book has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("/books")
-    public ResponseEntity<Book> createBook(@RequestBody BookDTO bookDTO) throws URISyntaxException {
-        log.debug("REST request to save Book : {}", bookDTO);
-        if (bookDTO.getId() != null) {
+    public ResponseEntity<Book> createBook(@RequestBody Book book) throws URISyntaxException {
+        log.debug("REST request to save Book : {}", book);
+        if (book.getId() != null) {
             throw new BadRequestAlertException("A new book cannot already have an ID", ENTITY_NAME, "idexists");
         }
-        Book book = new Book();
-        book.setTitle(bookDTO.getTitle());
-        book.setGenre(bookDTO.getGenre());
-        book.setPages(bookDTO.getPages());
-        authorService.findOne(bookDTO.getAuthorId()).ifPresent(book::setAuthor);
+
         Book result = bookService.save(book);
         return ResponseEntity
             .created(new URI("/api/books/" + result.getId()))
@@ -73,37 +69,31 @@ public class BookResource {
      * {@code PUT  /books/:id} : Updates an existing book.
      *
      * @param id the id of the book to save.
-     * @param bookDTO the book to update.
+     * @param book the book to update.
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated book,
      * or with status {@code 400 (Bad Request)} if the book is not valid,
      * or with status {@code 500 (Internal Server Error)} if the book couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/books/{id}")
-    public ResponseEntity<Book> updateBook(@PathVariable(value = "id", required = false) final Long id, @RequestBody BookDTO bookDTO)
+    public ResponseEntity<Book> updateBook(@PathVariable(value = "id", required = false) final Long id, @RequestBody Book book)
         throws URISyntaxException {
-        log.debug("REST request to update Book : {}, {}", id, bookDTO);
-        if (bookDTO.getId() == null) {
+        log.debug("REST request to update Book : {}, {}", id, book);
+        if (book.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
         }
-        if (!Objects.equals(id, bookDTO.getId())) {
+        if (!Objects.equals(id, book.getId())) {
             throw new BadRequestAlertException("Invalid ID", ENTITY_NAME, "idinvalid");
         }
 
         if (!bookRepository.existsById(id)) {
             throw new BadRequestAlertException("Entity not found", ENTITY_NAME, "idnotfound");
         }
-        Book book = new Book();
-        book.setId(bookDTO.getId());
-        book.setTitle(bookDTO.getTitle());
-        book.setGenre(bookDTO.getGenre());
-        book.setPages(bookDTO.getPages());
-        authorService.findOne(bookDTO.getAuthorId()).ifPresent(book::setAuthor);
 
         Book result = bookService.save(book);
         return ResponseEntity
             .ok()
-            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, bookDTO.getId().toString()))
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, false, ENTITY_NAME, book.getId().toString()))
             .body(result);
     }
 

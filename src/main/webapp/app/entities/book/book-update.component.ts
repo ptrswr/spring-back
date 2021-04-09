@@ -52,6 +52,7 @@ export default class BookUpdate extends Vue {
       this.bookService()
         .update(this.book)
         .then(param => {
+          console.log(this.book);
           this.isSaving = false;
           this.$router.go(-1);
           const message = 'A Book is updated with identifier ' + param.id;
