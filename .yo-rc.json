@@ -41,6 +41,8 @@
     "jwtSecretKey": "NTkwZGRmYzU1M2M2NWE5NDgzNjJlYzE0ZTc1MWYzMGQ3ODkzYTJhNWZjN2U3YzI5ZWIzZTJlNzVlM2U0YTAxZjIzZjMwODQ5NGE0ZDA2Njk2YmQxZTJiNDE5MGQ5MTRkMWExZjJjNDIxMDkyMTc3Yjg3ODNlMGUwY2Y3NWRkODA=",
     "clientPackageManager": "npm",
     "clientThemeVariant": "",
-    "languages": ["en", "fr"]
+    "languages": ["en", "fr"],
+    "lastLiquibaseTimestamp": 1616757895000,
+    "entities": ["Author", "Book", "Loan"]
   }
 }

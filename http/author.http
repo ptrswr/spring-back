@@ -1,0 +1,23 @@
+GET http://localhost:8080/api/authors
+####
+GET http://localhost:8080/api/loans
+###
+POST http://localhost:8080/api/authenticate
+Content-Type: application/json
+
+{"username": "user", "password": "user", "rememberMe":  false}
+
+> {%client.global.set("authtoken", response.body["id_token"]);%}
+
+### post books
+POST http://localhost:8080/api/books
+Authorization: Bearer {{authtoken}}
+Content-Type: application/json
+
+{
+  "authorId": 9,
+  "genre": "Comedy",
+  "pages": 234,
+  "title": "S"
+}
+###
