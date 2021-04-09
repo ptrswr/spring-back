@@ -11,8 +11,6 @@
         <span data-cy="loginTitle" slot="modal-title" id="login-title">Sign in</span>
         <login-form></login-form>
       </b-modal>
-
-      <jhi-footer></jhi-footer>
     </div>
   </div>
 </template>
