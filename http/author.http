@@ -1,6 +1,6 @@
 GET http://localhost:8080/api/authors
 ####
-GET http://localhost:8080/api/loans
+GET http://localhost:8080/api/users
 ###
 POST http://localhost:8080/api/authenticate
 Content-Type: application/json
