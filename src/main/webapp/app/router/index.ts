@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
+
 Component.registerHooks([
   'beforeRouteEnter',
   'beforeRouteLeave',
@@ -29,13 +30,13 @@ export default new Router({
       path: '/forbidden',
       name: 'Forbidden',
       component: Error,
-      meta: { error403: true }
+      meta: {error403: true}
     },
     {
       path: '/not-found',
       name: 'NotFound',
       component: Error,
-      meta: { error404: true }
+      meta: {error404: true}
     },
     ...account,
     ...admin,

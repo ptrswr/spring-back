@@ -5,8 +5,12 @@
       <p class="lead">Loan your book today!</p>
 
       <div>
-        <div class="alert alert-success" v-if="authenticated">
-          <span v-if="username">You are logged in "{{ username }}"</span>
+        <div class="alert alert-primary" v-if="authenticated">
+          <span v-if="username"
+            >Hello <b>{{ username }}</b
+            >, just a quick reminder, the technical break is scheduled to take place today, between 5AM and 7AM. We are sorry for any
+            inconveniences.</span
+          >
         </div>
 
         <div class="alert alert-warning" v-if="!authenticated">
@@ -15,7 +19,7 @@
           <span>to get a full Library experience:<br /></span>
         </div>
         <div v-if="authenticated">
-          <div class="container mt-5">
+          <div class="container mt-5 mb-5">
             <div class="row">
               <div class="col mt-2">
                 <div class="card" style="width: 18rem">
@@ -65,6 +69,19 @@
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="container mt-5 mb-5">
+            <div class="card text-center">
+              <div class="card-header">
+                <h2>Featured</h2>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Special weekend offer!</h5>
+                <p class="card-text">Get 15% discount for your first book loan by signing up for our newsletter!</p>
+                <a href="#" class="btn btn-outline-primary btn-lg">Sign up</a>
+              </div>
+              <div class="card-footer text-muted">2 days ago</div>
             </div>
           </div>
         </div>
