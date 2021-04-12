@@ -15,38 +15,55 @@
           <span>to get a full Library experience:<br /></span>
         </div>
         <div v-if="authenticated">
-          <h1 class="display-4">Available resources</h1>
           <div class="container mt-5">
             <div class="row">
-              <div class="col">
-                <router-link to="/author">
-                  <button type="button" class="btn btn-primary btn-lg" to="">
-                    <div class="mr-1">
-                      <font-awesome-icon icon="user"></font-awesome-icon>
-                    </div>
-                    Authors
-                  </button>
-                </router-link>
+              <div class="col mt-2">
+                <div class="card" style="width: 18rem">
+                  <div class="card-body">
+                    <h5 class="card-title">Authors</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <router-link to="/author">
+                      <button type="button" class="btn btn-primary">
+                        <div class="mr-1">
+                          <font-awesome-icon icon="user"></font-awesome-icon>
+                        </div>
+                        Browse authors
+                      </button>
+                    </router-link>
+                  </div>
+                </div>
               </div>
-              <div class="col">
-                <router-link to="/book">
-                  <button type="button" class="btn btn-primary btn-lg">
-                    <div class="mr-1">
-                      <font-awesome-icon icon="book"></font-awesome-icon>
-                    </div>
-                    Books
-                  </button>
-                </router-link>
+              <div class="col mt-2">
+                <div class="card" style="width: 18rem">
+                  <div class="card-body">
+                    <h5 class="card-title">Books</h5>
+                    <p class="card-text">Nulla varius blandit neque sed euismod. Donec quis tortor.</p>
+                    <router-link to="/book">
+                      <button type="button" class="btn btn-primary">
+                        <div class="mr-1">
+                          <font-awesome-icon icon="book"></font-awesome-icon>
+                        </div>
+                        Browse books
+                      </button>
+                    </router-link>
+                  </div>
+                </div>
               </div>
-              <div class="col">
-                <router-link to="/loan">
-                  <button type="button" class="btn btn-primary btn-lg">
-                    <div class="mr-1">
-                      <font-awesome-icon icon="book"></font-awesome-icon>
-                    </div>
-                    Loans
-                  </button>
-                </router-link>
+              <div class="col mt-2">
+                <div class="card" style="width: 18rem">
+                  <div class="card-body">
+                    <h5 class="card-title">Loans</h5>
+                    <p class="card-text">Etiam accumsan lectus risus, non elementum augue vehicula eu.</p>
+                    <router-link to="/loan">
+                      <button type="button" class="btn btn-primary">
+                        <div class="mr-1">
+                          <font-awesome-icon icon="book"></font-awesome-icon>
+                        </div>
+                        Loan a book
+                      </button>
+                    </router-link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

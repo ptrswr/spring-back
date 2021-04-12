@@ -2,7 +2,7 @@
   <div>
     <h2 id="page-heading" data-cy="BookHeading">
       <span id="book-heading">Books</span>
-      <div class="d-flex justify-content-end">
+      <div class="d-flex justify-content-between mt-3">
         <button class="btn btn-info mr-2" v-on:click="handleSyncList" :disabled="isFetching">
           <font-awesome-icon icon="sync" :spin="isFetching"></font-awesome-icon> <span>Refresh List</span>
         </button>
